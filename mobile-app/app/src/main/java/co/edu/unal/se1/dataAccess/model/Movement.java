@@ -39,7 +39,7 @@ public class Movement implements Serializable {
     }
 
 
-    public boolean getType() {return type;}
+    public String getType() {return type;}
 
     public void setType(boolean type) {this.type = type;}
 
