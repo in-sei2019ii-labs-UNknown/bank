@@ -6,7 +6,7 @@ import android.content.Context;
 import co.edu.unal.se1.dataAccess.model.User;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
 
-public class UserController {
+public class  UserController {
 
     private UserRepository userRepository;
 
