@@ -6,131 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".presentation.activity.MainActivity">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="120dp"
+        android:layout_height="51dp"
+        android:text="ENTRAR"
+        tools:layout_editor_absoluteX="73dp"
+        tools:layout_editor_absoluteY="527dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTRARSE"
+        tools:layout_editor_absoluteX="223dp"
+        tools:layout_editor_absoluteY="530dp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ID" />
+    <EditText
+        android:id="@+id/Usuario"
+        android:layout_width="269dp"
+        android:layout_height="51dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="CORREO@EJEMPLO.CO"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="333dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+    <EditText
+        android:id="@+id/Contraseña"
+        android:layout_width="269dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="numberPassword"
+        android:text="AAAAAA"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="397dp" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ayuda"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="15dp" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Nombre" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/balance"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Saldo" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                                <Button
-                                    android:id="@+id/createButton"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Crear Usuario" />
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <com.google.android.material.textfield.TextInputLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
-
-                                        <com.google.android.material.textfield.TextInputEditText
-                                            android:id="@+id/sourceId"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:hint="Origen" />
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:orientation="vertical">
-
-                                            <com.google.android.material.textfield.TextInputLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="match_parent">
-
-                                                <com.google.android.material.textfield.TextInputEditText
-                                                    android:id="@+id/targetId"
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:hint="Destino" />
-
-                                                <LinearLayout
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="match_parent"
-                                                    android:orientation="vertical">
-
-                                                    <com.google.android.material.textfield.TextInputLayout
-                                                        android:layout_width="match_parent"
-                                                        android:layout_height="match_parent">
-
-                                                        <com.google.android.material.textfield.TextInputEditText
-                                                            android:id="@+id/value"
-                                                            android:layout_width="match_parent"
-                                                            android:layout_height="wrap_content"
-                                                            android:hint="Valor" />
-
-                                                        <LinearLayout
-                                                            android:layout_width="match_parent"
-                                                            android:layout_height="match_parent"
-                                                            android:orientation="vertical">
-
-                                                            <Button
-                                                                android:id="@+id/sendMoneyButton"
-                                                                android:layout_width="match_parent"
-                                                                android:layout_height="wrap_content"
-                                                                android:text="Enviar Dinero" />
-                                                        </LinearLayout>
-                                                    </com.google.android.material.textfield.TextInputLayout>
-                                                </LinearLayout>
-                                            </com.google.android.material.textfield.TextInputLayout>
-                                        </LinearLayout>
-                                    </com.google.android.material.textfield.TextInputLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-                        </com.google.android.material.textfield.TextInputLayout>
-                    </LinearLayout>
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
