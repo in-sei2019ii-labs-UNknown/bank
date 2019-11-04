@@ -3,12 +3,15 @@ package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
 
+import java.util.List;
+
 import co.edu.unal.se1.dataAccess.model.User;
 import co.edu.unal.se1.dataAccess.model.Movement;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
 import co.edu.unal.se1.dataAccess.repository.MovementRepository;
 
 import static java.lang.Character.isDigit;
+import java.util.*;
 
 public class  UserController {
 
@@ -154,6 +157,27 @@ public class  UserController {
         }else{
             return false;
         }
+    }
+
+    public void viewState(int sourceId, Context context) {
+        userRepository = new UserRepository(context);
+        final User sourceUser = userRepository.getUserById(sourceId);
+        if(sourceUser.getState()){
+            System.out.println("La cuenta se encuentra activa");
+        }else{
+            System.out.println("La cuenta se encuentra inactiva");
+        }
+
+    }
+
+    public Movement viewHistoric(int sourceId, Context context) {
+        movementRepository = new MovementRepository(context);
+
+        LinkedList<Movement> historic = new LinkedList();
+
+        historic = movementRepository.getAllMovementById(sourceId);
+
+        return historic;
     }
 
 
