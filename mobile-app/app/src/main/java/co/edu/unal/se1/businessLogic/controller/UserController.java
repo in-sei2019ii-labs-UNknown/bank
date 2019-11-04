@@ -8,6 +8,8 @@ import co.edu.unal.se1.dataAccess.model.Movement;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
 import co.edu.unal.se1.dataAccess.repository.MovementRepository;
 
+import static java.lang.Character.isDigit;
+
 public class  UserController {
 
     private UserRepository userRepository;
@@ -117,14 +119,14 @@ public class  UserController {
         final User sourceUser = userRepository.getUserById(sourceId);
         if(newPassword.length()<=6){
             for(int i=0; i<6; i++){
-                if(!isDigit(newPassword.charAt(i))){
+                if(isDigit(newPassword.charAt(i))){
                     flag1=false;
                 }
             }
         }
 
 
-        if(flag1==true){
+        if(flag1){
             sourceUser.setPassword(newPassword);
             System.out.println("¡Contraseña cambiada satisfactoriamente!");
         }else{
