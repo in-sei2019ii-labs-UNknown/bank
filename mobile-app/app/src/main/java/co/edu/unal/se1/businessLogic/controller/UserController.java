@@ -4,11 +4,14 @@ package co.edu.unal.se1.businessLogic.controller;
 import android.content.Context;
 
 import co.edu.unal.se1.dataAccess.model.User;
+import co.edu.unal.se1.dataAccess.model.Movement;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
+import co.edu.unal.se1.dataAccess.repository.MovementRepository;
 
 public class  UserController {
 
     private UserRepository userRepository;
+    private MovementRepository movementRepository;
 
     public UserController() {
 
@@ -52,6 +55,19 @@ public class  UserController {
                     ", Name: " + updatedTargetUser.getName() +
                     ", Balance: " + updatedTargetUser.getBalance());
 
+            //Movement creation, Type: transaction
+
+            Movement movement = new Movement();
+            movement.setId(sourceId);
+            movement.getReceiverIdId(targetId);
+            movement.date("Today"); // Pending
+            movement.setType("Transaction");
+
+
+            movementRepository = new MovementRepository(context);
+            movementRepository.createMovement(movement);
+            System.out.println("Movimiento respectavamente generado");
+
             return true;
 
         } else {
@@ -59,5 +75,24 @@ public class  UserController {
             return false;
         }
 
+    }
+
+    public void deposit(int targetId, double value, Context context) {
+
+        userRepository = new UserRepository(context);
+
+        final User targetUser = userRepository.getUserById(targetId);
+        System.out.println("Target User - ID: " + targetUser.getId() +
+                ", Name: " + targetUser.getName() +
+                ", Balance: " + targetUser.getBalance());
+
+        targetUser.setBalance(targetUser.getBalance() + value);
+
+        userRepository.updateUser(targetUser);
+
+        final User updatedTargetUser = userRepository.getUserById(targetId);
+        System.out.println("Target User (updated) - ID: " + updatedTargetUser.getId() +
+                ", Name: " + updatedTargetUser.getName() +
+                ", New balance: " + updatedTargetUser.getBalance());
     }
 }
