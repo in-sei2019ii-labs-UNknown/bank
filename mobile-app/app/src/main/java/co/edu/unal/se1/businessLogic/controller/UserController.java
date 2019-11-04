@@ -170,10 +170,10 @@ public class  UserController {
 
     }
 
-    public Movement viewHistoric(int sourceId, Context context) {
+    public List<Movement> viewHistoric(int sourceId, Context context) {
         movementRepository = new MovementRepository(context);
 
-        LinkedList<Movement> historic = new LinkedList();
+        List<Movement> historic = new LinkedList();
 
         historic = movementRepository.getAllMovementById(sourceId);
 
