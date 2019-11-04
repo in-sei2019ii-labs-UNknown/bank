@@ -1,4 +1,3 @@
-
 package co.edu.unal.se1.dataAccess.repository;
 
 import android.content.Context;
@@ -6,19 +5,20 @@ import androidx.room.Room;
 import java.util.List;
 
 import co.edu.unal.se1.dataAccess.db.Database;
+import co.edu.unal.se1.dataAccess.model.Movement;
 import co.edu.unal.se1.dataAccess.model.User;
 
-public class UserRepository {
+public class MovementRepository {
 
     private String DB_NAME = "se1_db_bank";
 
     private Database database;
-    public UserRepository(Context context) {
+    public MovementRepository(Context context) {
         database = Room.databaseBuilder(context, Database.class, DB_NAME).
                 allowMainThreadQueries().build();
     }
 
-    public List<User> getAllUsers() {
+    public List<Movement> getAllUsers() {
         return database.userDao().getAllUsers();
     }
 
@@ -30,13 +30,5 @@ public class UserRepository {
         database.userDao().createUser(user);
     }
 
-    public void updateUser(User user) {
-        database.userDao().updateUser(user);
-    }
-
-    public void deleteUser(int id) {
-        User user = database.userDao().getUserById(id);
-        database.userDao().deleteUser(user);
-    }
 
 }
