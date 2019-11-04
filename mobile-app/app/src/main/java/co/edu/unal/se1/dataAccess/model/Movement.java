@@ -30,11 +30,11 @@ public class Movement implements Serializable {
     }
 
 
-    public int getReceiverIdId() {
+    public int getReceiverId() {
         return receiverId;
     }
 
-    public void setReceiverIdId(int receiverId) {
+    public void setReceiverId(int receiverId) {
         this.receiverId = receiverId;
     }
 

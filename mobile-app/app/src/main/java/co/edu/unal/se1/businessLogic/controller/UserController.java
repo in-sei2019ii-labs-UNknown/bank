@@ -59,8 +59,8 @@ public class  UserController {
 
             Movement movement = new Movement();
             movement.setId(sourceId);
-            movement.getReceiverIdId(targetId);
-            movement.date("Today"); // Pending
+            movement.setReceiverId(targetId);
+            movement.setDate("Today"); // Pending
             movement.setType("Transaction");
 
 
@@ -94,5 +94,20 @@ public class  UserController {
         System.out.println("Target User (updated) - ID: " + updatedTargetUser.getId() +
                 ", Name: " + updatedTargetUser.getName() +
                 ", New balance: " + updatedTargetUser.getBalance());
+
+        //Movement creation, Type: Deposit
+
+        Movement movement = new Movement();
+        movement.setId(targetId);
+        movement.setReceiverId(-1);
+        movement.setDate("Today"); // Pending
+        movement.setType("Deposit");
+
+
+        movementRepository = new MovementRepository(context);
+        movementRepository.createMovement(movement);
+        System.out.println("Movimiento respectavamente generado");
     }
+
+    
 }
