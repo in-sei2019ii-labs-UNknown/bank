@@ -21,6 +21,10 @@ public class MovementRepository {
         return databaseMovement.movementDao().getAllMovements();
     }
 
+    public List<Movement> getAllMovementById() {
+        return databaseMovement.movementDao().getAllMovementById();
+    }
+
     public Movement getMovementById(int id) {
         return databaseMovement.movementDao().getMovementById(id);
     }

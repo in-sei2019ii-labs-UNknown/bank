@@ -8,6 +8,8 @@ import co.edu.unal.se1.dataAccess.model.Movement;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
 import co.edu.unal.se1.dataAccess.repository.MovementRepository;
 
+import static java.lang.Character.isDigit;
+
 public class  UserController {
 
     private UserRepository userRepository;
@@ -100,6 +102,7 @@ public class  UserController {
         Movement movement = new Movement();
         movement.setId(targetId);
         movement.setReceiverId(-1);
+
         movement.setDate("Today"); // Pending
         movement.setType("Deposit");
 
@@ -132,4 +135,26 @@ public class  UserController {
         }
 
     }
+
+    public boolean login(int sourceId, String password, Context context) {
+        userRepository = new UserRepository(context);
+
+        User sourceUser = new User();
+
+        sourceUser = null;
+
+        sourceUser = userRepository.getUserById(sourceId);
+
+        if (!(sourceUser == null)) {
+            if(sourceUser.getState()==true){
+                return false;
+            } else {
+                return true;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    
 }
