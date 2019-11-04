@@ -109,5 +109,27 @@ public class  UserController {
         System.out.println("Movimiento respectavamente generado");
     }
 
-    
+
+    public void changePasswaord(int sourceId, String newPassword, Context context) {
+
+        boolean flag1=true;
+        userRepository = new UserRepository(context);
+        final User sourceUser = userRepository.getUserById(sourceId);
+        if(newPassword.length()<=6){
+            for(int i=0; i<6; i++){
+                if(!isDigit(newPassword.charAt(i))){
+                    flag1=false;
+                }
+            }
+        }
+
+
+        if(flag1==true){
+            sourceUser.setPassword(newPassword);
+            System.out.println("¡Contraseña cambiada satisfactoriamente!");
+        }else{
+            System.out.println("La contraseña ingresada no esta permitida");
+        }
+
+    }
 }
