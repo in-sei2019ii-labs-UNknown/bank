@@ -18,6 +18,9 @@ public interface MovementDao {
     @Query("SELECT * FROM movement WHERE id = :id")
     Movement getMovementById(int id);
 
+    @Query("SELECT * FROM movement WHERE source_id = :sourceId")
+    List<Movement> getAllMovementById(int sourceId);
+
     @Insert
     void createMovement(Movement movement);
 

@@ -2,13 +2,18 @@
 package co.edu.unal.se1.businessLogic.controller;
 
 import android.content.Context;
+import static java.lang.Character.isDigit;
 
 import co.edu.unal.se1.dataAccess.model.User;
 import co.edu.unal.se1.dataAccess.model.Movement;
 import co.edu.unal.se1.dataAccess.repository.UserRepository;
 import co.edu.unal.se1.dataAccess.repository.MovementRepository;
 
+
+
 public class  UserController {
+
+    static int mi=-1;
 
     private UserRepository userRepository;
     private MovementRepository movementRepository;
@@ -58,7 +63,8 @@ public class  UserController {
             //Movement creation, Type: transaction
 
             Movement movement = new Movement();
-            movement.setId(sourceId);
+            movement.setId(mi++);
+            movement.setSourceId(sourceId);
             movement.setReceiverId(targetId);
             movement.setDate("Today"); // Pending
             movement.setType("Transaction");
@@ -98,7 +104,8 @@ public class  UserController {
         //Movement creation, Type: Deposit
 
         Movement movement = new Movement();
-        movement.setId(targetId);
+        movement.setId(mi++);
+        movement.setSourceId(targetId);
         movement.setReceiverId(-1);
         movement.setDate("Today"); // Pending
         movement.setType("Deposit");
@@ -115,6 +122,7 @@ public class  UserController {
         boolean flag1=true;
         userRepository = new UserRepository(context);
         final User sourceUser = userRepository.getUserById(sourceId);
+
         if(newPassword.length()<=6){
             for(int i=0; i<6; i++){
                 if(!isDigit(newPassword.charAt(i))){
@@ -122,7 +130,6 @@ public class  UserController {
                 }
             }
         }
-
 
         if(flag1==true){
             sourceUser.setPassword(newPassword);
@@ -132,4 +139,39 @@ public class  UserController {
         }
 
     }
+
+    public void deleteAccount(int sourceId, Context context) {
+
+        userRepository = new UserRepository(context);
+        final User sourceUser = userRepository.getUserById(sourceId);
+
+        if(sourceUser.getBalance() == 0) {
+            sourceUser.setState(false);
+        }else{
+            System.out.println("El saldo de la cuenta no es igual a 0");
+        }
+    }
+
+    public boolean login(int sourceId, String password, Context context) {
+        userRepository = new UserRepository(context);
+
+        User sourceUser = new User();
+
+        sourceUser = null;
+
+        sourceUser = userRepository.getUserById(sourceId);
+
+        if (!(sourceUser == null)) {
+            if(sourceUser.getState()==true){
+                    return false;
+                } else {
+                    return true;
+                }
+            }else{
+            return false;
+        }
+    }
+
+
+
 }

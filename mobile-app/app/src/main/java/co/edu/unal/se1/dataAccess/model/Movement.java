@@ -12,6 +12,9 @@ public class Movement implements Serializable {
     @PrimaryKey
     public int id;
 
+    @ColumnInfo(name = "source_id")
+    public int sourceId;
+
     @ColumnInfo(name = "receiver_id")
     public int receiverId;
 
@@ -27,6 +30,15 @@ public class Movement implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+
+    public int getSourceId() {
+        return sourceId;
+    }
+
+    public void setSourceId(int sourceId) {
+        this.sourceId = sourceId;
     }
 
 
