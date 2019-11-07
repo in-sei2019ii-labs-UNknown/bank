@@ -2,7 +2,6 @@ package co.edu.unal.se1.dataAccess.db;
 
 import androidx.room.RoomDatabase;
 
-import co.edu.unal.se1.dataAccess.dao.MovementDao;
 import co.edu.unal.se1.dataAccess.dao.UserDao;
 import co.edu.unal.se1.dataAccess.model.User;
 
@@ -10,6 +9,4 @@ import co.edu.unal.se1.dataAccess.model.User;
 public abstract class Database extends RoomDatabase {
 
     public abstract UserDao userDao();
-
-    public abstract MovementDao movementDao();
 }

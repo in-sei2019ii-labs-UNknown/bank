@@ -38,5 +38,4 @@ public class UserRepository {
         User user = database.userDao().getUserById(id);
         database.userDao().deleteUser(user);
     }
-
 }
